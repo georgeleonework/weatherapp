@@ -7,6 +7,9 @@ const getWeather = async (id) => {
     const query = `${id}?apikey=${key}`;
 
     const response = await fetch(base + query);
+    const data = await response.json();
+
+    return data[0];
 }
 
 //get city information
@@ -22,6 +25,9 @@ const getCity = async (city) => {
 
 };
 
-getCity('Miami')
-    .then(data => console.log(data))
+getCity('manchester').then(data => { //adding the city that we want to search here
+        return getWeather(data.Key); //returning the result of the promise after passing in the data.key
+    }).then(data => {
+        console.log(data);
+    })
     .catch(err => console.log(err));

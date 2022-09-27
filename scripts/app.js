@@ -27,6 +27,7 @@ const updateUI = (data) => {
     } else {
         timeSrc = 'img/night.svg';
     }
+    time.setAttribute('src', timeSrc);
 
     //remove the classcard if d-none is in the classlist
     if(card.classList.contains('d-none')){

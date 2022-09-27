@@ -2,7 +2,10 @@ const cityForm = document.querySelector('form');
 
 const updateCity = async (city) => {
 
-}
+    const cityDets = await getCity(city) 
+    
+
+};
 
 cityForm.addEventListener('submit', e => {
 //prevent default action
@@ -14,4 +17,4 @@ cityForm.addEventListener('submit', e => {
 
 //update the ui with the new city
     updateCity(city);
-})
+});

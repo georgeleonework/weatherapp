@@ -19,7 +19,17 @@ const updateUI = (data) => {
     </div>
     `;
 
-    if(card.classList.contains('d-non')){
+    //update the night/date and icon images
+
+    let timeSrc = null;
+    if(weather.IsDayTime){
+        timeSrc = 'img/day.svg';
+    } else {
+        timeSrc = 'img/night.svg';
+    }
+
+    //remove the classcard if d-none is in the classlist
+    if(card.classList.contains('d-none')){
         card.classList.remove('d-none');
     }
 

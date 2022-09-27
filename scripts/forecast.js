@@ -25,9 +25,3 @@ const getCity = async (city) => {
 
 };
 
-getCity('manchester').then(data => { //adding the city that we want to search here
-        return getWeather(data.Key); //returning the result of the promise after passing in the data.key
-    }).then(data => {
-        console.log(data);
-    })
-    .catch(err => console.log(err));

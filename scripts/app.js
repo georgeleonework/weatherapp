@@ -18,7 +18,6 @@ const updateUI = (data) => {
         <span>&deg;F</span>
     </div>
     `;
-
     //update the night/date and icon images
 
     const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
@@ -31,17 +30,12 @@ const updateUI = (data) => {
         timeSrc = 'img/night.svg';
     }
     time.setAttribute('src', timeSrc);
-
     //remove the classcard if d-none is in the classlist
     if(card.classList.contains('d-none')){
         card.classList.remove('d-none');
     }
 
 };
-
-
-
-
 
 const updateCity = async (city) => {
     const cityDets = await getCity(city);
@@ -59,4 +53,16 @@ cityForm.addEventListener('submit', e => {
     updateCity(city)
         .then(data => updateUI(data))
         .catch(err => console.log(err));
+
+//set city const to local storage
+
+    localStorage.setItem('city', city);
 });
+
+
+if(localStorage.getItem('city')){
+    updateCity(localStorage.getItem('city'))
+    .then(data => updateUI(data))
+    .catch(err => console.log(err));
+}
+
